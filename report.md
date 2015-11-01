@@ -92,21 +92,21 @@
 ###3.4.1  人员管理系统业务流程图###
 
 
-**在此添加截图**  
+![人员管理系统](http://ww2.sinaimg.cn/mw690/ec2e3c8bgw1exlxt800g2j20el0eg751.jpg)
 
 ###3.4.2  文件管理系统业务流程图###
 
 
-**在此添加截图**  
+![文件管理系统](http://ww2.sinaimg.cn/mw690/ec2e3c8bgw1exlxt7mbzvj20et0a6weu.jpg)
 
 ###3.4.3财务管理系统业务流程图###
 
-**在此添加截图**  
+![财务管理系统](http://ww1.sinaimg.cn/mw690/ec2e3c8bgw1exlxt8lkbcj20fe0e00tn.jpg) 
 
 ###3.4.4日常事务业务流程图###
 
 
-**在此添加截图**  
+![日常事务](http://ww2.sinaimg.cn/mw690/ec2e3c8bgw1exlxt8ne3pj20fe0bwwfd.jpg)
 
 
 ##3.5  系统逻辑模型##
