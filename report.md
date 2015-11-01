@@ -85,7 +85,7 @@
 
 
 
-**截图在此添加**  
+![功能结构图](http://ww2.sinaimg.cn/mw1024/ec2e3c8bgw1exlx8ypam7j20fe0bqdhw.jpg)  
 
 
 ##3.4  业务流程分析##
