@@ -111,9 +111,14 @@
 
 ##3.5  系统逻辑模型##
 ###3.5.1  数据建模###
+![](http://ww1.sinaimg.cn/mw690/ec2e3c8bgw1exooqjrf9xj20j805gt8t.jpg)
+![](http://ww1.sinaimg.cn/mw690/ec2e3c8bgw1exooqk8r8bj20n40ddwfi.jpg)
+![](http://ww3.sinaimg.cn/mw690/ec2e3c8bgw1exooqkuqp0j20pg0f675r.jpg)
+![](http://ww4.sinaimg.cn/mw690/ec2e3c8bgw1exooqlggb1j20if0e8jsm.jpg)
 
 ###3.5.2  过程建模###
-
+![](http://ww3.sinaimg.cn/mw690/ec2e3c8bgw1exooqm8s0qj20kw0f140z.jpg)
+![](http://ww2.sinaimg.cn/mw690/ec2e3c8bgw1exooqmqjr0j20jq08tq3t.jpg)
 ###3.5.3  Axure原型设计###
 
 
