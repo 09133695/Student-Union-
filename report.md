@@ -123,8 +123,182 @@
 
 
 #第四章 系统设计#
+##4.1 后台##
+###4.1.1 javabeen###
+  以学生类为例
+  
+					private String StuNo;
+					private String StuName;
+					private String StuSex;
+					private String StuMajor;
+					private String StuGrade;
+					private String StuPhoneNo;
+					public String getStuNo() {
+						return StuNo;
+					}
+					public void setStuNo(String stuNo) {
+						StuNo = stuNo;
+					}
+					public String getStuName() {
+						return StuName;
+					}
+					public void setStuName(String stuName) {
+						StuName = stuName;
+					}
+					public String getStuSex() {
+						return StuSex;
+					}
+					public void setStuSex(String stuSex) {
+						StuSex = stuSex;
+					}
+					public String getStuMajor() {
+						return StuMajor;
+					}
+					public void setStuMajor(String stuMajor) {
+						StuMajor = stuMajor;
+					}
+					public String getStuGrade() {
+						return StuGrade;
+					}
+					public void setStuGrade(String stuGrade) {
+						StuGrade = stuGrade;
+					}
+					public String getStuPhoneNo() {
+						return StuPhoneNo;
+					}
+					public void setStuPhoneNo(String stuPhoneNo) {
+						StuPhoneNo = stuPhoneNo;
+					}
+				}
+##4.1.2 方法##
+ 以物品的方法为例
+ 				
+				import eb.java.studentunion.DbUtil;
+				import eb.java.studentunion.entity.Goods;
+				
+				public class GoodsDal {
+				
+					public static boolean addGoods(int GoodsNo,String GoodsName, String GoodsBuyTime,
+							float GoodsPrice, int TotalNumber,int AvailableNumber) 
+					//添加类物品
+					{
+						int i = 0;
+						Connection connection = DbUtil.getConnection();
+						PreparedStatement pstat;
+						try {
+							pstat = connection
+									.prepareStatement("insert into Goods(GoodsNo,GoodsName,GoodsBuyTime
+									,GoodsPrice,TotalNumber,AvailableNumber) values(?,?,?,?,?,?)");
+							pstat.setInt(1, GoodsNo);
+							pstat.setString(2, GoodsName);
+							pstat.setString(3, GoodsBuyTime);
+							pstat.setFloat(4, GoodsPrice);
+							pstat.setInt(5,TotalNumber);
+							pstat.setInt(6, AvailableNumber);
+							i = pstat.executeUpdate();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						return i > 0;
+					}
+				
+					
+				
+					public static boolean updateGoods(int GoodsNo,String GoodsName, String GoodsBuyTime,
+							float GoodsPrice, int TotalNumber,int AvailableNumber) 
+					//更新物品表
+					{
+						int i = 0;
+						Connection connection = DbUtil.getConnection();
+						PreparedStatement pstat;
+						try {
+							pstat = connection
+									.prepareStatement("update Goods set GoodsName=? ,GoodsBuyTime=?,GoodsPrice=?,TotalNumber=?,AvailableNumber=? where GoodsNo=?");
+							pstat.setString(1, GoodsName);
+							pstat.setString(2, GoodsBuyTime);
+							pstat.setFloat(3, GoodsPrice);
+							pstat.setInt(4, TotalNumber);
+							pstat.setInt(5, AvailableNumber);
+							pstat.setInt(6, GoodsNo);
+							i = pstat.executeUpdate();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						return i > 0;
+					}
+				
+					public static List<Goods> getAllGoods() //获取所有物品
+					{
+						List<Goods> allGoods=new ArrayList<Goods>();
+						ResultSet rs = null;
+						Connection connection = DbUtil.getConnection();
+						PreparedStatement pstat;
+						try {
+								pstat = connection
+										.prepareStatement("select * from Goods");
+							rs = pstat.executeQuery();
+							if(rs!=null){
+								while(rs.next())
+								//赋值
+								{
+									Goods goods=new Goods();
+									goods.setGoodsName(rs.getString("GoodsName"));
+									goods.setGoodsNo(rs.getInt("GoodsNo"));
+									goods.setGoodsBuyTime(rs.getString("GoodsBuyTime"));
+									goods.setGoodsPrice(rs.getFloat("GoodsPrice"));
+									goods.setTotalNumber(rs.getInt("TotalNumber"));
+									goods.setAvailableNumber(rs.getInt("AvailableNumber"));									
+									allGoods.add(goods);
+								}
+							}
+							rs.close();
+							pstat.close();
+							connection.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						return allGoods;
+					}
+					public static List<Goods> getByGoodsSn() //查询物品
+					{
+						List<Goods> allGoods=new ArrayList<Goods>();
+						Goods goods=new Goods();
+						ResultSet rs = null;
+						Connection connection = DbUtil.getConnection();
+						PreparedStatement pstat;
+						try {
+								pstat = connection
+										.prepareStatement("select * from Goods where GoodsSn='JYDQ_DJD_SD_1'");
+							rs = pstat.executeQuery();
+							if(rs!=null){
+								while(rs.next())
+								//赋值
+								{					
+									goods.setGoodsName(rs.getString("GoodsName"));
+									goods.setGoodsNo(rs.getInt("GoodsNo"));
+									goods.setGoodsBuyTime(rs.getString("GoodsBuyTime"));
+									goods.setGoodsPrice(rs.getFloat("GoodsPrice"));
+									goods.setTotalNumber(rs.getInt("TotalNumber"));
+									goods.setAvailableNumber(rs.getInt("AvailableNumber"));									
+									allGoods.add(goods);
+								}
+							}
+							rs.close();
+							pstat.close();
+							connection.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						return allGoods;
+					}							
+				}
 
 
+				 
 
 
 
